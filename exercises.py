@@ -34,4 +34,11 @@ class BankAccount:
                 self.balance -= amount
                 print(f"Withdrew {amount} from {self.owner}'s account. New balance: {self.balance}") 
 
-        
+    
+class SavingsAccount(BankAccount):
+    def withdraw(self):
+        print("Withdrawals aren't allowed from a savings account.")
+        return
+
+
+
