@@ -42,3 +42,33 @@ class SavingsAccount(BankAccount):
 
 
 
+# test values:
+nightfall = BankAccount("Nightfall", 950, True)
+dawnbringer = BankAccount("Dawnbringer", 666) #overdraft auto set to False
+
+# test cases:
+# nightfall (account with overdraft)
+nightfall.deposit(76)
+nightfall.withdraw(100) 
+nightfall.withdraw(-100) # should not allow negative withdraw
+nightfall.withdraw(10000) # should allow overdraft
+
+#dawnbringer (account without overdraft)
+dawnbringer.deposit(29)
+dawnbringer.withdraw(100) 
+dawnbringer.withdraw(-100) # should not allow negative withdraw
+dawnbringer.withdraw(10000) # should not allow overdraft
+
+
+# test savings account
+HouseSavings = SavingsAccount("HouseSavings", 5000, True) # overdraft allowed, even tho it doesnt matter since withdrawal isnt allowed
+CarSavings = SavingsAccount("CarSavings", 1000) # no overdraft allowed, even tho it doesnt matter since withdrawal isnt allowed
+
+# test cases:
+# HouseSavings (account with overdraft)
+HouseSavings.deposit(1000)
+HouseSavings.withdraw() # should not allow withdrawal
+
+# CarSavings (account without overdraft)
+CarSavings.deposit(1000)
+CarSavings.withdraw() # should not allow withdrawal
