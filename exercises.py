@@ -72,3 +72,9 @@ HouseSavings.withdraw() # should not allow withdrawal
 # CarSavings (account without overdraft)
 CarSavings.deposit(1000)
 CarSavings.withdraw() # should not allow withdrawal
+
+# Account summaries:
+print(nightfall)
+print(dawnbringer)
+print(HouseSavings)
+print(CarSavings)
